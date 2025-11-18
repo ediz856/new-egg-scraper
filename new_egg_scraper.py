@@ -58,9 +58,9 @@ class NewEggScraper:
             rating = rating_tag.get("title", "") if rating_tag else ""
 
             seller_tag = product.find("a", class_="item-brand")
-            seller = seller_tag.get_text(strip=True) if seller_tag else ""
+            seller = seller_tag["href"] if seller_tag else ""
 
-            img = product.find("img")
+            img = product.find("img", class_="checkedimg2 checkedimg")
             image = img["src"] if img else ""
 
             features = product.select("ul.item-features li")
